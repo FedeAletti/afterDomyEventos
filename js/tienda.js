@@ -33,17 +33,17 @@ const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 let acumulador = ``;
 baseDeDatosRopa.forEach((producto) => {
     acumulador += `
-  <div class="col">
-    <div class="card" style="width: 18rem;">
-    <img src="${producto.img}" class="card-img-top imgProd" alt="...">
-      <div class="card-body text-center">
-        <h5 class="card-title titleProd" id="">${producto.title}</h5>
-        <p class="card-text descriptionProd" id="">${producto.description}</p>
-        <p class="card-text priceProd" id="">${producto.price}</p>
-        <button data-id="${producto.id}" class="btn btn-primary agregar-carrito">Agregar</button>
-      </div>
-    </div>
-  </div>`;
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+            <img src="${producto.img}" class="card-img-top imgProd" alt="...">
+            <div class="card-body text-center">
+                <h5 class="card-title titleProd" id="">${producto.title}</h5>
+                <p class="card-text descriptionProd" id="">${producto.description}</p>
+                <p class="card-text priceProd" id="">${producto.price}</p>
+                <button data-id="${producto.id}" class="btn btn-primary agregar-carrito">Agregar</button>
+            </div>
+            </div>
+        </div>`;
 });
 
 // Imprimimos las cards
@@ -72,6 +72,7 @@ function agregarAlCarrito(e) {
         obtenerDatos(productoSeleccionado);
     }
 }
+
 function obtenerDatos(productoCard) {
     //Se construye el objeto para guardarlo posteriormente en un array (carrito, o etc)
     const datosProducto = {
@@ -106,8 +107,8 @@ const mostrarCarrito = document.querySelector("#mostrar-carrito")
 
 if (mostrarCarrito) {
     mostrarCarrito.addEventListener('click', mostrarElCarrito)
-
 }
+
 function mostrarElCarrito() {
     if (localStorage.length == 0) {
         const msgInicial = document.createElement("h2")

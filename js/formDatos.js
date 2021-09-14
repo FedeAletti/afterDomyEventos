@@ -17,10 +17,8 @@ const btnEnviarDatos = document.querySelector("#formBtnDatos");
 
 /* *************** LISTENERS *************** */
 btnEnviarDatos.addEventListener("click", formEnviar);
-//divRadio.addEventListener("change", actualizarForm)
 
-
-
+divRadio.addEventListener("change", actualizarForm)
 
 
 
@@ -30,47 +28,44 @@ btnEnviarDatos.addEventListener("click", formEnviar);
 function formEnviar(e) {
     e.preventDefault();
 
-    console.log(inpGen.value);
-
-    // console.log(inpNombre.value);
-    // console.log(inpApe.value);
-    // console.log(inpEdad.value);
-    // console.log(inpNac.value);
+    console.log(inpNombre.value);
+    console.log(inpApe.value);
+    console.log(inpEdad.value);
+    console.log(inpNac.value);
     
-    // if (inpNombre.value.length > 8) {
-    //     alert("Nombre muy largo")
-    //     return false
-    // }else if(inpNombre.value == "" || inpApe.value == "" || inpEdad.value == "" || inpNac.value == "" ){
-    //     alert("Rellenar los campos es obligatorio")
-    //     return false
-    // }else if(inpEdad.value   < 18){
-    //     alert("Sos menor de edad")
-    //     return false
-    // }
+    if (inpNombre.value.length > 8) {
+        alert("Nombre muy largo")
+        return false
+    }else if(inpNombre.value == "" || inpApe.value == "" || inpEdad.value == "" || inpNac.value == "" ){
+        alert("Rellenar los campos es obligatorio")
+        return false
+    }else if(inpEdad.value   < 18){
+        alert("Sos menor de edad")
+        return false
+    }
     
-    
-    // const user = {
-    //     nombre: inpNombre.value,
-    //     apellido: inpApe.value,
-    //     edad: inpEdad.value,
-    //     nacionalidad: inpNac.value
-    // }
+    const user = {
+        nombre: inpNombre.value,
+        apellido: inpApe.value,
+        edad: inpEdad.value,
+        nacionalidad: inpNac.value
+    }
 
-
-    // localStorage.setItem('usuario', JSON.stringify(user));
+    console.log(user);
+    localStorage.setItem('usuario', JSON.stringify(user));
 
 }
 
 
-// function actualizarForm(e) {
-//     inpRadio.textContent = e.target.value;
-//     // inpRadio.innerHTML = `
-//     //     <div class="mb-3">
-//     //         <label for="exampleInputPassword1" class="form-label">Form para opcion ${e.target.value}</label>
-//     //         <input type="text" class="form-control" />
-//     //     </div>
-//     // `
-// }
+function actualizarForm(e) {
+    // inpRadio.textContent = e.target.value;
+     inpRadio.innerHTML = `
+         <div class="mb-3">
+             <label for="exampleInputPassword1" class="form-label">Form para opcion ${e.target.value}</label>
+             <input type="text" class="form-control" />
+         </div>
+     `
+}
 
 
 
@@ -78,13 +73,13 @@ function formEnviar(e) {
 /* -------------------------------------------------------------------------- */
 /*                                Mas ejemplos                                */
 /* -------------------------------------------------------------------------- */
-// inpNac.addEventListener('change', (event) => {
-//     const resultado = document.querySelector('.resultado');
-//     resultado.textContent = `Te gusta el sabor ${event.target.value}`;
-// });
-// inpNac.addEventListener('change', updateValue);
+inpNac.addEventListener('change', (e) => {
+    const resultado = document.querySelector('.resultado');
+    resultado.textContent = `Sos ${e.target.value}`;
+});
+inpNac.addEventListener('change', updateValue);
 
-// function updateValue(e) {
-//     const resultado = document.querySelector('.resultado');
-//     resultado.textContent = e.target.value;
-// }
+function updateValue(e) {
+    const resultado = document.querySelector('.resultado');
+    resultado.textContent = e.target.value;
+}
